@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="detective.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1852"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="0"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="criminals" custom_title="0" dock_id="1" table="4,9:maincriminals"/><dock_state state="000000ff00000000fd00000001000000020000024800000215fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000002480000012300ffffff000002480000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="crimes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="57"/><column index="2" value="72"/><column index="3" value="79"/><column index="4" value="92"/><column index="5" value="73"/><column index="6" value="44"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="criminals" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="70"/><column index="2" value="119"/><column index="3" value="55"/><column index="4" value="35"/><column index="5" value="64"/><column index="6" value="65"/><column index="7" value="71"/><column index="8" value="95"/><column index="9" value="183"/><column index="10" value="125"/><column index="11" value="143"/><column index="12" value="78"/><column index="13" value="63"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">CREATE TABLE criminals (
+    criminal_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    gender TEXT,
+    age INTEGER,
+    eye_color TEXT,
+    hair_color TEXT,
+    height TEXT,
+    scar_location TEXT,
+    distinctive_features TEXT,
+    last_known_location TEXT,
+    crime_type TEXT NOT NULL,
+    threat_level TEXT,
+    photo_url TEXT
+);
+
+CREATE TABLE crimes (
+    crime_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    criminal_id INTEGER,
+    crime_name TEXT,
+    crime_location TEXT,
+    crime_date TEXT,
+    status TEXT,
+    FOREIGN KEY (criminal_id) REFERENCES criminals(criminal_id)
+);
+
+</sql><sql name="SQL 2*">INSERT INTO criminals 
+(name, gender, age, eye_color, hair_color, height, scar_location, distinctive_features, last_known_location, crime_type, threat_level)
+VALUES
+('Ravi Sharma','Male',34,'Brown','Black','5ft 9in','Left cheek','Dragon tattoo on arm','Mumbai','Robbery','High'),
+
+('Aisha Khan','Female',28,'Green','Brown','5ft 6in','None','Limp while walking','Delhi','Fraud','Medium'),
+
+('John Dsouza','Male',40,'Blue','Black','6ft','Right arm','Burn mark on forearm','Goa','Smuggling','High'),
+
+('Rahul Mehta','Male',31,'Brown','Black','5ft 10in','Forehead','Snake tattoo on neck','Ahmedabad','Drug Trafficking','High'),
+
+('Priya Patel','Female',26,'Brown','Black','5ft 5in','None','Pierced eyebrow','Surat','Cyber Crime','Medium'),
+
+('Imran Sheikh','Male',38,'Black','Black','5ft 8in','Left hand','Missing index finger','Hyderabad','Kidnapping','High'),
+
+('Arjun Nair','Male',29,'Hazel','Brown','5ft 11in','Right cheek','Large tattoo on back','Kochi','Robbery','Medium'),
+
+('Sneha Kapoor','Female',33,'Brown','Black','5ft 4in','None','Star tattoo on wrist','Chandigarh','Forgery','Low'),
+
+('Vikram Singh','Male',42,'Black','Grey','6ft','Left arm','Scar across eyebrow','Jaipur','Arms Dealing','High'),
+
+('Neha Verma','Female',30,'Green','Brown','5ft 7in','None','Walks with slight limp','Lucknow','Identity Theft','Medium'),
+
+('Karan Malhotra','Male',35,'Brown','Black','5ft 10in','Right hand','Tiger tattoo','Delhi','Bank Robbery','High'),
+
+('Rohit Yadav','Male',27,'Black','Black','5ft 8in','Left cheek','Gold tooth','Patna','Chain Snatching','Low'),
+
+('Fatima Ali','Female',32,'Brown','Black','5ft 6in','None','Small mole on chin','Bhopal','Money Laundering','Medium'),
+
+('Manoj Kumar','Male',45,'Black','Grey','5ft 9in','Forehead','Burn mark','Kolkata','Human Trafficking','High'),
+
+('Sanjay Gupta','Male',39,'Brown','Black','5ft 10in','Right arm','Skull tattoo','Pune','Extortion','Medium');</sql><current_tab id="1"/></tab_sql></sqlb_project>
